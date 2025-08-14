@@ -1,0 +1,51 @@
+Failure # 1 (occurred at 2025-08-14_19-31-02)
+[36mray::ImplicitFunc.train()[39m (pid=2705743, ip=134.226.40.133, actor_id=e21aa3cec381f4f5d447629201000000, repr=run_training)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/trainable.py", line 330, in train
+    raise skipped from exception_cause(skipped)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/air/_internal/util.py", line 107, in run
+    self._ret = self._target(*self._args, **self._kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/function_trainable.py", line 45, in <lambda>
+    training_func=lambda: self._trainable_func(self.config),
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/function_trainable.py", line 261, in _trainable_func
+    output = fn()
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 240, in run_training
+    logits, loss = model(xb, yb)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 168, in forward
+    x = self.blocks(x)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 145, in forward
+    x = x + self.sa(self.ln1(x))
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 122, in forward
+    out = torch.cat([h(x) for h in self.heads], dim=-1)
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 122, in <listcomp>
+    out = torch.cat([h(x) for h in self.heads], dim=-1)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 106, in forward
+    k = self.key(x)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 116, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 4.31 MiB is free. Process 2700410 has 22.57 GiB memory in use. Process 2705742 has 480.00 MiB memory in use. Including non-PyTorch memory, this process has 550.00 MiB memory in use. Of the allocated memory 101.01 MiB is allocated by PyTorch, and 1017.50 KiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

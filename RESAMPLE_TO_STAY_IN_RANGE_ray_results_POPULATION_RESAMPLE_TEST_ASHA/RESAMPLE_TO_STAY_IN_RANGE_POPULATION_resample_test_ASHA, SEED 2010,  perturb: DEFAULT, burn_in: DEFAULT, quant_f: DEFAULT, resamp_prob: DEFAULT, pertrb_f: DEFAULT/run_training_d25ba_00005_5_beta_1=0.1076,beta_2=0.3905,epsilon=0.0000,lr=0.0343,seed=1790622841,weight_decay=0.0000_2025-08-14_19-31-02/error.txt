@@ -1,0 +1,24 @@
+Failure # 1 (occurred at 2025-08-14_19-31-05)
+[36mray::ImplicitFunc.train()[39m (pid=2706366, ip=134.226.40.133, actor_id=b510d56621154c9dc4c31abf01000000, repr=run_training)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/trainable.py", line 330, in train
+    raise skipped from exception_cause(skipped)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/air/_internal/util.py", line 107, in run
+    self._ret = self._target(*self._args, **self._kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/function_trainable.py", line 45, in <lambda>
+    training_func=lambda: self._trainable_func(self.config),
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/function_trainable.py", line 261, in _trainable_func
+    output = fn()
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 198, in run_training
+    model = GPTLanguageModel().to(device)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1152, in to
+    return self._apply(convert)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 802, in _apply
+    module._apply(fn)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 825, in _apply
+    param_applied = fn(param)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1150, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.

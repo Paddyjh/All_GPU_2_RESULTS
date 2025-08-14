@@ -1,0 +1,2 @@
+loss,train_loss,iter,timestamp,checkpoint_dir_name,should_checkpoint,done,training_iteration,trial_id,date,time_this_iter_s,time_total_s,pid,hostname,node_ip,time_since_restore,iterations_since_restore
+2.8909466004371644,2.873237497806549,500,1754770643,checkpoint_000000,True,True,1,4b902_00107,2025-08-09_21-17-23,33.23176574707031,33.23176574707031,1492803,ash,134.226.40.133,33.23176574707031,1

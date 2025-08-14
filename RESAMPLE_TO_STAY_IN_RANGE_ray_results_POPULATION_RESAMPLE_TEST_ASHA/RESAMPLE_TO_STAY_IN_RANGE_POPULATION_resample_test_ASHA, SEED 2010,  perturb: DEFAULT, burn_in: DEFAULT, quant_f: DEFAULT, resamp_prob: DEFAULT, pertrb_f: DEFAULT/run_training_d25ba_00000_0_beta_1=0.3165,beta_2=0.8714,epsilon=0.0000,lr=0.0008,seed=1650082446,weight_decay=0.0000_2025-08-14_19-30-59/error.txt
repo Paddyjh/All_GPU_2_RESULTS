@@ -1,0 +1,19 @@
+Failure # 1 (occurred at 2025-08-14_19-31-02)
+[36mray::ImplicitFunc.train()[39m (pid=2705742, ip=134.226.40.133, actor_id=b0aa16a2de85ad9e40e9690901000000, repr=run_training)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/trainable.py", line 330, in train
+    raise skipped from exception_cause(skipped)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/air/_internal/util.py", line 107, in run
+    self._ret = self._target(*self._args, **self._kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/function_trainable.py", line 45, in <lambda>
+    training_func=lambda: self._trainable_func(self.config),
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/ray/tune/trainable/function_trainable.py", line 261, in _trainable_func
+    output = fn()
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 240, in run_training
+    logits, loss = model(xb, yb)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/patrick/dissertation_code/myenv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/patrick/dissertation_code/POPULATION_WITHIN_RANGE_LOW_DIM.py", line 167, in forward
+    x = self.token_emb(idx) + self.pos_emb(torch.arange(T, device=device))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 16.00 MiB. GPU 0 has a total capacity of 23.65 GiB of which 4.31 MiB is free. Process 2700410 has 22.57 GiB memory in use. Including non-PyTorch memory, this process has 480.00 MiB memory in use. Process 2705743 has 550.00 MiB memory in use. Of the allocated memory 32.94 MiB is allocated by PyTorch, and 1.06 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
